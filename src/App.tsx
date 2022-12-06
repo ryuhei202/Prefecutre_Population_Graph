@@ -1,8 +1,13 @@
-import React from 'react';
 import './App.css';
+import { TopPage } from './containers/Pages/TopPage';
 
 function App() {
-// aaaa
+
+return (
+  <>
+  <TopPage /> 
+  </>
+)
 }
 
 export default App;
