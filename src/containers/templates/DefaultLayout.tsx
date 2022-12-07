@@ -1,4 +1,4 @@
-export const DefaultArea = () => {
+export const DefaultLayout = () => {
   return (
     <>
     {/* Header */}
