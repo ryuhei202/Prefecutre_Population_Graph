@@ -16,7 +16,7 @@ export const CheckBox = (props:any) => {
       return (
         <React.Fragment key={pre.prefCode}> 
           <div>
-            <h5>{pre.prefName}</h5>
+            <input type="checkbox" value={pre.prefCode} />{pre.prefName}
           </div>
           
           </React.Fragment>
