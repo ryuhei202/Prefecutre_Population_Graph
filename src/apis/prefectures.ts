@@ -4,8 +4,8 @@ import { prefecturesIndex } from "../urls"
 export const fetchPrefectures = () => {
   return axios.get(prefecturesIndex,{ headers: { 'X-API-KEY': '	2d7e9nRWrZGKkIikLRayeL7gKjiJZIsXbUDRb98Z' } })
   .then(res => {
-    console.log(res);
-    return res;
+    const prefData= res.data.result
+    return prefData;
   })
   .catch((e) => console.error(e))
 }

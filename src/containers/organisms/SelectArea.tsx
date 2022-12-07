@@ -2,17 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { fetchPrefectures } from "../../apis/prefectures";
+import { Prefectures } from "../../types";
 
 export const SelectArea = () => {
 
-  const [ prefectures, setPrefectures ] = useState();
+  const [ prefectures, setPrefectures ] = useState<Prefectures | null>(null);
 
 useEffect(() => {
   fetchPrefectures()
   .then((data) => {
-    console.log(data);
+    setPrefectures(data);
   })
 },[]);
+
 
   return (
     <>
