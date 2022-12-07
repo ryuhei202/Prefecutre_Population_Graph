@@ -1,12 +1,18 @@
 // 都道府県を選択するコンポーネント
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { fetchPrefectures } from "../../apis/prefectures";
 
 export const SelectArea = () => {
 
-useEffect(()= {
+  const [ prefectures, setPrefectures ] = useState();
 
-},[])
+useEffect(() => {
+  fetchPrefectures()
+  .then((data) => {
+    console.log(data);
+  })
+},[]);
 
   return (
     <>
