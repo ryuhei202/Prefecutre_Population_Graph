@@ -1,7 +1,9 @@
+import { Header } from "../organisms/Header";
+
 export const Page404 = () => {
   return (
     <>
-    <p>404</p>
+    <Header>404</Header>
     
     </>
   )
