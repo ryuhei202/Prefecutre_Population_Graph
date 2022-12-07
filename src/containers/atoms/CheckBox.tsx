@@ -11,11 +11,12 @@ export const CheckBox = (props:any) => {
 
   return (
     <>
+    <div className='checkbox-container'>
     {
     prefectures?.map((pre:Prefectures)=>{
       return (
         <React.Fragment key={pre.prefCode}> 
-          <div>
+          <div className='checkbox' >
             <input type="checkbox" value={pre.prefCode} />{pre.prefName}
           </div>
           
@@ -25,6 +26,8 @@ export const CheckBox = (props:any) => {
     })
  
     }
+    </div>
+    
     
     </>
   )
