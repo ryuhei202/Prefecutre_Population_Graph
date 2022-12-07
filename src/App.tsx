@@ -7,13 +7,12 @@ function App() {
 
 return (
   <>
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<TopPage />} />
-      <Route path='*' element={<Page404 />} />
-    </Routes>
-  </BrowserRouter>
-
+    <BrowserRouter>
+      <Routes>
+       <Route path='/' element={<TopPage />} />
+       <Route path='*' element={<Page404 />} />
+     </Routes>
+    </BrowserRouter>
   </>
 )
 }

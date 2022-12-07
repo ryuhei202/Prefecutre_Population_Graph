@@ -19,9 +19,11 @@ export const SelectArea = () => {
 
   return (
     <>
-    <p>都道府県</p>
-
-    <CheckBox prefectures={prefectures} />
+    <div className="select-area">
+      <p>都道府県</p>
+      <CheckBox prefectures={prefectures} />
+    </div>
+    
     
     </>
   )

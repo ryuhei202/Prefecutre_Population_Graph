@@ -1,0 +1,16 @@
+.checkbox-container {
+  display: flex;
+}
+
+header {
+  border: solid;
+}
+
+.select-area {
+  border: solid;
+}
+/* 
+.checkbox {
+  margin: 2px;
+  display: flex;
+} */
