@@ -3,24 +3,25 @@
 import { useEffect, useState } from "react";
 import { fetchPrefectures } from "../../apis/prefectures";
 import { Prefectures } from "../../types";
+import { CheckBox } from "../atoms/CheckBox";
 
 export const SelectArea = () => {
 
-  const [ prefectures, setPrefectures ] = useState<Prefectures | null>(null);
+  const [ prefectures, setPrefectures ] = useState<Prefectures[]>();
 
-useEffect(() => {
-  fetchPrefectures()
-  .then((data) => {
-    setPrefectures(data);
-  })
-},[]);
+  useEffect(() => {
+    fetchPrefectures()
+    .then((data) => {
+      setPrefectures(data);
+    })
+  },[]);
 
 
   return (
     <>
     <p>都道府県</p>
 
-    {/* checkbox */}
+    <CheckBox prefectures={prefectures} />
     
     </>
   )
