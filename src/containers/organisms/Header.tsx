@@ -1,7 +1,7 @@
 export const Header = (props:any) => {
   return (
     <>
-    <p>{props.children}</p>
+    <h2>{props.children}</h2>
     
     </>
   )
