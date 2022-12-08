@@ -1,13 +1,12 @@
-import { DisplayGraphs } from "../organisms/DisplayGraphs";
+
 import { Header } from "../organisms/Header";
-import { SelectArea } from "../organisms/SelectArea";
+import { PrefecturesGraph } from "../organisms/PrefecturesGraph";
 
 export const TopPage = () => {
   return (
     <>
     <Header>top</Header>
-    <SelectArea />
-    <DisplayGraphs />
+    <PrefecturesGraph />
     </>
   )
 };

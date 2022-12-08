@@ -5,19 +5,7 @@ import { Prefectures } from "../../types";
 
 export const CheckBox = (props:any) => {
 
-  const { prefectures } = props;
-  console.log(prefectures?.length);
-
-  const [ selectedPrefecture, setSelectedPrefecture ] = useState<Array<number>>([]);
-
-  //選択されたcheckboxのvalueを取得し、selectedPrefectureに格納
-  const onClickCheckbox = (e:any) => {
-    setSelectedPrefecture(     
-      [...selectedPrefecture, e.target.value ]
-    );
-  }
-
-  console.log(selectedPrefecture);
+  const { prefectures, onClickCheckbox } = props;
 
   return (
     <>
@@ -29,8 +17,7 @@ export const CheckBox = (props:any) => {
           <div className='checkbox' >
             <input type="checkbox" value={pre.prefCode} onClick={onClickCheckbox} />{pre.prefName}
           </div>
-          
-          </React.Fragment>
+        </React.Fragment>
        
       );
     })
