@@ -1,6 +1,7 @@
 // 都道府県を選択するコンポーネント
 
 import { useEffect, useState } from "react";
+import { fetchPopulation } from "../../apis/population";
 // import { fetchPopulation } from "../../apis/population";
 import { fetchPrefectures } from "../../apis/prefectures";
 import { Prefectures } from "../../types";
@@ -13,7 +14,7 @@ export const PrefecturesGraph = () => {
 
   const [ selectedPrefecture, setSelectedPrefecture ] = useState<Array<number>>([]);
 
-console.log(selectedPrefecture[3]);
+console.log(selectedPrefecture[1]);
 
   //選択されたcheckboxのvalueを取得し、selectedPrefectureに格納
   const onClickAddPrefecture = (e:any) => {
@@ -21,9 +22,9 @@ console.log(selectedPrefecture[3]);
       [...selectedPrefecture, e.target.value ]
     );
 
-    // fetchPopulation().then((data:any)=>{
-    //   console.log(data)
-    // })
+    fetchPopulation(selectedPrefecture[1]).then((data:any)=>{
+      console.log(data)
+    })
 
   }
 
