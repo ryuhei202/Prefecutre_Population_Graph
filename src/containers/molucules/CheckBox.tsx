@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
+import { SelectedPrefectureContext } from '../../providers/SelectedPrefecturesProvider';
 import { Prefectures } from "../../types";
 
 
 export const CheckBox = (props:any) => {
-
   const { prefectures } = props;
   console.log(prefectures?.length);
 
-  const [ selectedPrefecture, setSelectedPrefecture ] = useState<Array<number>>([]);
-
-  //選択されたcheckboxのvalueを取得し、selectedPrefectureに格納
+  const { selectedPrefecture, setSelectedPrefecture } = useContext(SelectedPrefectureContext);
+  console.log(selectedPrefecture);
+  
+  //選択されたcheckboxのvalueを取得し、selectedPrefectureに配列として格納
   const onClickCheckbox = (e:any) => {
     setSelectedPrefecture(     
       [...selectedPrefecture, e.target.value ]
