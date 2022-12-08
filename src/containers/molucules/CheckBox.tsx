@@ -5,6 +5,7 @@ import { Prefectures } from "../../types";
 
 
 export const CheckBox = (props:any) => {
+<<<<<<< HEAD
   const { prefectures } = props;
   console.log(prefectures?.length);
 
@@ -19,6 +20,10 @@ export const CheckBox = (props:any) => {
   }
 
   console.log(selectedPrefecture);
+=======
+
+  const { prefectures, onClickCheckbox } = props;
+>>>>>>> develop
 
   return (
     <>
@@ -30,8 +35,7 @@ export const CheckBox = (props:any) => {
           <div className='checkbox' >
             <input type="checkbox" value={pre.prefCode} onClick={onClickCheckbox} />{pre.prefName}
           </div>
-          
-          </React.Fragment>
+        </React.Fragment>
        
       );
     })
