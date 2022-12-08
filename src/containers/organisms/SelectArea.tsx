@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchPrefectures } from "../../apis/prefectures";
 import { Prefectures } from "../../types";
-import { CheckBox } from "../atoms/CheckBox";
+import { CheckBox } from "../molucules/CheckBox";
 
 export const SelectArea = () => {
 
@@ -22,9 +22,7 @@ export const SelectArea = () => {
     <div className="select-area">
       <p>都道府県</p>
       <CheckBox prefectures={prefectures} />
-    </div>
-    
-    
+    </div>       
     </>
   )
 };
