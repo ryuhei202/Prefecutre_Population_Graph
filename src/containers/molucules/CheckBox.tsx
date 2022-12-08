@@ -8,14 +8,15 @@ export const CheckBox = (props:any) => {
   const { prefectures } = props;
   console.log(prefectures?.length);
 
-  const [ selectedPrefecture, setSelectedPrefecture ] = useState<number>();
+  const [ selectedPrefecture, setSelectedPrefecture ] = useState<Array<number>>([]);
 
+  //選択されたcheckboxのvalueを取得し、selectedPrefectureに格納
   const onClickCheckbox = (e:any) => {
-    setSelectedPrefecture(
-      e.target.value 
+    setSelectedPrefecture(     
+      [...selectedPrefecture, e.target.value ]
     );
   }
-  
+
   console.log(selectedPrefecture);
 
   return (
