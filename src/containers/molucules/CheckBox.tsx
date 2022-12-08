@@ -5,25 +5,9 @@ import { Prefectures } from "../../types";
 
 
 export const CheckBox = (props:any) => {
-<<<<<<< HEAD
-  const { prefectures } = props;
-  console.log(prefectures?.length);
-
-  const { selectedPrefecture, setSelectedPrefecture } = useContext(SelectedPrefectureContext);
-  console.log(selectedPrefecture);
-  
-  //選択されたcheckboxのvalueを取得し、selectedPrefectureに配列として格納
-  const onClickCheckbox = (e:any) => {
-    setSelectedPrefecture(     
-      [...selectedPrefecture, e.target.value ]
-    );
-  }
-
-  console.log(selectedPrefecture);
-=======
 
   const { prefectures, onClickCheckbox } = props;
->>>>>>> develop
+
 
   return (
     <>
