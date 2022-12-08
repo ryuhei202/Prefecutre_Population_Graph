@@ -14,18 +14,22 @@ export const PrefecturesGraph = () => {
 
   const [ selectedPrefecture, setSelectedPrefecture ] = useState<Array<number>>([]);
 
-console.log(selectedPrefecture[1]);
-
   //選択されたcheckboxのvalueを取得し、selectedPrefectureに格納
   const onClickAddPrefecture = (e:any) => {
     setSelectedPrefecture(     
       [...selectedPrefecture, e.target.value ]
     );
+    getPopulation();
+  }
 
-    fetchPopulation(selectedPrefecture[1]).then((data:any)=>{
-      console.log(data)
-    })
+  console.log(selectedPrefecture);
 
+  const getPopulation = () => {
+    for(let i = 0; i < selectedPrefecture.length + 1; i++){
+      fetchPopulation(selectedPrefecture[i]).then((data:any)=>{
+        console.log(data);
+      })
+    }    
   }
 
   useEffect(() => {
