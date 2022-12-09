@@ -1,8 +1,7 @@
 // 都道府県を選択するコンポーネント
-
 import { useEffect, useState } from "react";
+import { BooleanLiteral } from "typescript";
 import { fetchPopulation } from "../../apis/population";
-// import { fetchPopulation } from "../../apis/population";
 import { fetchPrefectures } from "../../apis/prefectures";
 import { Prefectures } from "../../types";
 import { CheckBox } from "../molucules/CheckBox";
@@ -12,22 +11,23 @@ export const PrefecturesGraph = () => {
 
   const [ prefectures, setPrefectures ] = useState<Prefectures[]>();
 
-  // const [checked, setChecked] = useState<boolean>(false);
+  const [prefectureData, setPrefectureData] = useState<
+  { data: { year: number; value: number }[] }[]
+>([]);
 
-  const [ selectedPrefecture, setSelectedPrefecture ] = useState<Array<number>>([]);
 
-
-  const handleCheckboxChange = (e:any) => {
-    // setChecked(!checked);
+  const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
    
-    // console.log(checked);
+    console.log(checked);
     // if (checked === false && !selectedPrefecture.includes(e.target.value)) {
     //   // checkboxが選択されたとき、配列にcheckboxのvalueを追加する
     //   console.log(checked);
-      setSelectedPrefecture(     
-        [...selectedPrefecture, e.target.value ]
-      );
-      getPopulation();
+    if(checked) {
+      getPopulationData(name, value);
+    }
+     
+      
+     
     // } else if(checked === true && selectedPrefecture.includes(e.target.value)){
     //   // checkboxが選択されていないとき、配列からcheckboxのvalueを削除する
     //   const newArray = [...selectedPrefecture];
@@ -38,17 +38,16 @@ export const PrefecturesGraph = () => {
     //   // }
     // }
   };
+  const getPopulationData = (prefName:string, prefCode:number) => {
+    fetchPopulation(prefCode)
+    .then((data:any)=>{
+      setPrefectureData(data.result.data[0].data)
+    })
+  }    
 
+  console.log(prefectureData);
 
-  console.log(selectedPrefecture);
-
-  const getPopulation = () => {
-    for(let i = 0; i < selectedPrefecture.length + 1; i++){
-      fetchPopulation(selectedPrefecture[i]).then((data:any)=>{
-        // console.log(data);
-      })
-    }    
-  }
+  
 
   useEffect(() => {
     fetchPrefectures()
