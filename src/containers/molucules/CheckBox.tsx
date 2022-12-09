@@ -5,7 +5,7 @@ import { Prefectures } from "../../types";
 
 export const CheckBox = (props:any) => {
 
-  const { prefectures, onChange, checked, setChecked } = props;
+  const { prefectures, onChange } = props;
 
   return (
     <>
@@ -15,7 +15,7 @@ export const CheckBox = (props:any) => {
       return (
         <React.Fragment key={pre.prefCode} > 
           <div className='checkbox' >
-              <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={onChange}  />{pre.prefName}
+              <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, e.target.value, e.target.checked)}  />{pre.prefName}
           </div>
         </React.Fragment>
        
