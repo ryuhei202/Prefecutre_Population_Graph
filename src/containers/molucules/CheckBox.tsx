@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
 import { Prefectures } from "../../types";
 
 
 export const CheckBox = (props:any) => {
 
-  const { prefectures, onClickCheckbox } = props;
+  const { prefectures, onChange, checked, setChecked } = props;
 
   return (
     <>
@@ -13,9 +13,9 @@ export const CheckBox = (props:any) => {
     {
     prefectures?.map((pre:Prefectures)=>{
       return (
-        <React.Fragment key={pre.prefCode}> 
+        <React.Fragment key={pre.prefCode} > 
           <div className='checkbox' >
-            <input type="checkbox" value={pre.prefCode} onClick={onClickCheckbox} />{pre.prefName}
+              <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={onChange}  />{pre.prefName}
           </div>
         </React.Fragment>
        
