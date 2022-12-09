@@ -11,38 +11,35 @@ export const PrefecturesGraph = () => {
 
   const [ prefectures, setPrefectures ] = useState<Prefectures[]>();
 
-  const [prefectureData, setPrefectureData] = useState<
-  { data: { year: number; value: number }[] }[]
+  const [ prefectureData, setPrefectureData ] = useState<
+  { prefName: string; data: { year: number; value: number }[] }[]
 >([]);
 
 
+
+
   const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
-   
     console.log(checked);
-    // if (checked === false && !selectedPrefecture.includes(e.target.value)) {
-    //   // checkboxが選択されたとき、配列にcheckboxのvalueを追加する
-    //   console.log(checked);
     if(checked) {
-      getPopulationData(name, value);
-    }
-     
-      
-     
-    // } else if(checked === true && selectedPrefecture.includes(e.target.value)){
-    //   // checkboxが選択されていないとき、配列からcheckboxのvalueを削除する
-    //   const newArray = [...selectedPrefecture];
-    //   newArray.splice(e.target.value, 1);
-    //   setSelectedPrefecture(newArray);
-    //   // if (selectedPrefecture.includes(e.target.value)) {
-       
-    //   // }
-    // }
-  };
-  const getPopulationData = (prefName:string, prefCode:number) => {
-    fetchPopulation(prefCode)
-    .then((data:any)=>{
-      setPrefectureData(data.result.data[0].data)
+      fetchPopulation(value)
+    .then((res:any) => {
+      const newArray = [...prefectureData];
+      newArray.push({
+        prefName: name,
+        data: res.data.result.data[0].data
+      })
+      setPrefectureData(newArray);
     })
+      // getPopulationData(name, value);
+    } else {
+      // checkboxが外されたとき、配列からdataを削除する
+          //  const deleteDatav = 
+    }
+   
+  };
+
+  const getPopulationData = (prefName:string, prefCode:number) => {
+    
   }    
 
   console.log(prefectureData);
