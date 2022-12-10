@@ -5,7 +5,7 @@ import { PrefecturesGraph } from "../organisms/PrefecturesGraph";
 export const TopPage = () => {
   return (
     <>
-    <Header>top</Header>
+    <Header>都道府県別総人口推移</Header>
     <PrefecturesGraph />
     </>
   )
