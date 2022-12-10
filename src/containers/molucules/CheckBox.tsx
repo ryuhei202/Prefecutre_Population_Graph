@@ -13,20 +13,22 @@ export const CheckBox: React.FC<Props> = (props) => {
 
   return (
     <>
-    <div className='checkbox-container'>
-    {
-    prefectures?.map((pre:Prefectures)=>{
-      return (
-        <React.Fragment key={pre.prefCode} > 
-          <div className='checkbox' >
-              <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, pre.prefCode, e.target.checked)}  />{pre.prefName}
-          </div>
-        </React.Fragment>
-       
-      );
-    })
- 
+    <div className='container'>
+      <h3>都道府県</h3>
+      <div className='checkbox-container'>   
+     {
+     prefectures?.map((pre:Prefectures)=>{
+       return (
+        
+         <React.Fragment key={pre.prefCode} > 
+            <div className='checkbox' >
+               <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, pre.prefCode, e.target.checked)}  />{pre.prefName}
+            </div>
+          </React.Fragment>
+        );
+     })
     }
+     </div>       
     </div>
     
     

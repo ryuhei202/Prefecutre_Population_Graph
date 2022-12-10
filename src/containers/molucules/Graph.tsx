@@ -57,7 +57,10 @@ export const Graph: React.FC<Props>= (props) => {
 
   return (
     <>
-    <HighchartsReact highcharts={Highcharts} options={options} />
+      <div className="graph-wrapper">
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>
+      
     </>
   )
 };
