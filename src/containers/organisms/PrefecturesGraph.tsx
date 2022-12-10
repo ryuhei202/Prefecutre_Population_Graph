@@ -22,26 +22,26 @@ export const PrefecturesGraph = () => {
     console.log(checked);
     if(checked) {
       fetchPopulation(value)
-    .then((res:any) => {
-      const newArray = [...prefectureData];
-      newArray.push({
-        prefName: name,
-        data: res.data.result.data[0].data
-      })
-      setPrefectureData(newArray);
+      .then((res:any) => {
+
+        let addPrefectureData = [...prefectureData];
+        addPrefectureData.push({
+          prefName: name,
+         data: res.data.result.data[0].data
+       });
+
+      setPrefectureData(addPrefectureData);
     })
-      // getPopulationData(name, value);
     } else {
       // checkboxが外されたとき、配列からdataを削除する
-          //  const deleteDatav = 
+           let deletePrefectureData = [...prefectureData];
+           const deleteElement = deletePrefectureData.findIndex((dpd) => dpd.prefName === name);
+           deletePrefectureData.splice(deleteElement,1);
+           setPrefectureData(deletePrefectureData);
+        
     }
    
   };
-
-  const getPopulationData = (prefName:string, prefCode:number) => {
-    
-  }    
-
   console.log(prefectureData);
 
   
