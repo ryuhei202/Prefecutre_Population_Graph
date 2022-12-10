@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchPopulation } from "../../apis/population";
 import { fetchPrefectures } from "../../apis/prefectures";
 import { PrefectureData, Prefectures } from "../../types";
@@ -12,8 +12,7 @@ export const PrefecturesGraph = () => {
 
 
   //チェックボックスが選択された際のイベント
-  const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
-    console.log(checked);
+  const handleCheckboxChange = useCallback((name:string, value:number,checked:boolean) => {
     if(checked) {
        // checkboxが選択された時、配列にdataを追加する
        fetchPopulation(value)
@@ -37,7 +36,7 @@ export const PrefecturesGraph = () => {
            setPrefectureData(deletePrefectureData);      
     }
    
-  };
+  },[]);
 
   
 //都道府県データを取得
