@@ -53,7 +53,6 @@ export const PrefecturesGraph = () => {
   return (
     <>
     <div className="select-area">
-      <p>都道府県</p>
       <CheckBox prefectures={prefectures} onChange={handleCheckboxChange}  />
       <Graph  prefectureData={prefectureData} />
       

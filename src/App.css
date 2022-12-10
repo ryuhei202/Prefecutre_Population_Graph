@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif+JP");
-
-.checkbox-container {
-  display: flex;
+body {
+  font-family: "Noto Serif JP", sans-serif;
 }
 
 header {
@@ -11,18 +10,28 @@ header {
 }
 
 h2 {
-  font-family: "Noto Serif JP", sans-serif;
   text-align: center;
   font-size: 2rem;
   margin-right: 1.25rem;
 }
 
-.select-area {
-  /* border: solid; */
+.container {
 }
 
-/* 
-.checkbox {
-  margin: 2px;
+.checkbox-container {
+  width: 100%;
   display: flex;
-} */
+  flex-wrap: wrap;
+}
+
+h3 {
+  text-align: center;
+}
+
+.checkbox {
+  margin: 3px;
+}
+
+.graph-wrapper {
+  margin-top: 20px;
+}
