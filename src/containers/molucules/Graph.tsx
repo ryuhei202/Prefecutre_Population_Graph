@@ -5,12 +5,14 @@ export const Graph = (props:any) => {
   const { prefectureData } = props;
 
   let series: Highcharts.SeriesOptionsType[] = [];
+  let categories = [];
 
   for (let eachPre of prefectureData) {
     let data = [];
 
     for (let epd of eachPre.data) {
       data.push(epd.value);
+      categories.push(epd.year);
     }
 
     series.push({
@@ -30,11 +32,13 @@ export const Graph = (props:any) => {
       title: {
         text: "年度",
       },
+      categories: categories
     },
     yAxis: {
       title: {
         text: "人口数",
       },
+    
     },
     legend: {
       layout: 'vertical',
@@ -42,6 +46,7 @@ export const Graph = (props:any) => {
       verticalAlign: 'middle'
   },
     series: series
+    
 };
 
   return (
