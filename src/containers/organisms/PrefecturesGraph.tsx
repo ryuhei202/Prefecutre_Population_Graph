@@ -1,6 +1,5 @@
-// 都道府県を選択するコンポーネント
+
 import { useEffect, useState } from "react";
-import { BooleanLiteral } from "typescript";
 import { fetchPopulation } from "../../apis/population";
 import { fetchPrefectures } from "../../apis/prefectures";
 import { Prefectures } from "../../types";
@@ -15,16 +14,14 @@ export const PrefecturesGraph = () => {
   { prefName: string; data: { year: number; value: number }[] }[]
 >([]);
 
-
-
-
   const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
     console.log(checked);
     if(checked) {
-      fetchPopulation(value)
+       // checkboxが選択された時、配列にdataを追加する
+       fetchPopulation(value)
       .then((res:any) => {
-
         let addPrefectureData = [...prefectureData];
+
         addPrefectureData.push({
           prefName: name,
          data: res.data.result.data[0].data
@@ -36,9 +33,10 @@ export const PrefecturesGraph = () => {
       // checkboxが外されたとき、配列からdataを削除する
            let deletePrefectureData = [...prefectureData];
            const deleteElement = deletePrefectureData.findIndex((dpd) => dpd.prefName === name);
+
            deletePrefectureData.splice(deleteElement,1);
-           setPrefectureData(deletePrefectureData);
-        
+
+           setPrefectureData(deletePrefectureData);      
     }
    
   };
@@ -60,7 +58,7 @@ export const PrefecturesGraph = () => {
     <div className="select-area">
       <p>都道府県</p>
       <CheckBox prefectures={prefectures} onChange={handleCheckboxChange}  />
-      <Graph />
+      <Graph  prefectureData={prefectureData} />
       
     </div>       
     </>
