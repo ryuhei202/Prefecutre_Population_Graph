@@ -1,11 +1,16 @@
-import React, { useRef } from 'react';
-import { useState } from 'react';
+
+import React from 'react';
 import { Prefectures } from "../../types";
 
+type Props = {
+  prefectures:Prefectures[] | undefined;
+  onChange: (name:string, value:number,checked:boolean) => void;
+}
 
-export const CheckBox = (props:any) => {
+export const CheckBox: React.FC<Props> = (props) => {
 
   const { prefectures, onChange } = props;
+
 
   return (
     <>
@@ -15,7 +20,7 @@ export const CheckBox = (props:any) => {
       return (
         <React.Fragment key={pre.prefCode} > 
           <div className='checkbox' >
-              <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, e.target.value, e.target.checked)}  />{pre.prefName}
+              <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, pre.prefCode, e.target.checked)}  />{pre.prefName}
           </div>
         </React.Fragment>
        

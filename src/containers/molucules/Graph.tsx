@@ -1,7 +1,12 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { PrefectureData } from "../../types";
 
-export const Graph = (props:any) => {
+type Props = {
+  prefectureData: PrefectureData[]
+}
+
+export const Graph: React.FC<Props>= (props) => {
   const { prefectureData } = props;
 
   let series: Highcharts.SeriesOptionsType[] = [];
@@ -12,7 +17,7 @@ export const Graph = (props:any) => {
 
     for (let epd of eachPre.data) {
       data.push(epd.value);
-      categories.push(epd.year);
+      categories.push(String(epd.year));
     }
 
     series.push({
