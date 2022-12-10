@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { fetchPopulation } from "../../apis/population";
 import { fetchPrefectures } from "../../apis/prefectures";
-import { Prefectures } from "../../types";
+import { PrefectureData, Prefectures } from "../../types";
 import { CheckBox } from "../molucules/CheckBox";
 import { Graph } from "../molucules/Graph";
 
@@ -10,9 +10,7 @@ export const PrefecturesGraph = () => {
 
   const [ prefectures, setPrefectures ] = useState<Prefectures[]>();
 
-  const [ prefectureData, setPrefectureData ] = useState<
-  { prefName: string; data: { year: number; value: number }[] }[]
->([]);
+  const [ prefectureData, setPrefectureData ] = useState<PrefectureData[]>([]);
 
   const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
     console.log(checked);
@@ -40,7 +38,6 @@ export const PrefecturesGraph = () => {
     }
    
   };
-  console.log(prefectureData);
 
   
 
