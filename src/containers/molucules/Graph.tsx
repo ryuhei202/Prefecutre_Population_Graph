@@ -9,6 +9,7 @@ type Props = {
 export const Graph: React.FC<Props>= (props) => {
   const { prefectureData } = props;
 
+  //seriesとcategoriesに取得したデータを渡す
   let series: Highcharts.SeriesOptionsType[] = [];
   let categories = [];
 
@@ -27,7 +28,7 @@ export const Graph: React.FC<Props>= (props) => {
     });
   };
 
-
+//グラフのオプションを指定
   const options: Highcharts.Options = {
    
     title: {

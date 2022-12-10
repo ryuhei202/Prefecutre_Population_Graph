@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { fetchPopulation } from "../../apis/population";
 import { fetchPrefectures } from "../../apis/prefectures";
@@ -9,9 +8,10 @@ import { Graph } from "../molucules/Graph";
 export const PrefecturesGraph = () => {
 
   const [ prefectures, setPrefectures ] = useState<Prefectures[]>();
-
   const [ prefectureData, setPrefectureData ] = useState<PrefectureData[]>([]);
 
+
+  //チェックボックスが選択された際のイベント
   const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
     console.log(checked);
     if(checked) {
@@ -40,7 +40,7 @@ export const PrefecturesGraph = () => {
   };
 
   
-
+//都道府県データを取得
   useEffect(() => {
     fetchPrefectures()
     .then((data) => {
