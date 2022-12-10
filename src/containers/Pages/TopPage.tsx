@@ -6,7 +6,7 @@ export const TopPage = () => {
   
   return (
     <>
-    <Header>top</Header>
+    <Header>都道府県別総人口推移</Header>
     <PrefecturesGraph />
     </>
   )
