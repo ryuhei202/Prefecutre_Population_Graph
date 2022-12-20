@@ -12,7 +12,7 @@ export const PrefecturesGraph = () => {
 
 
   //チェックボックスが選択された際のイベント
-  const handleCheckboxChange = useCallback((name:string, value:number,checked:boolean) => {
+  const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
     if(checked) {
        // checkboxが選択された時、配列にdataを追加する
        fetchPopulation(value)
@@ -36,7 +36,7 @@ export const PrefecturesGraph = () => {
            setPrefectureData(deletePrefectureData);      
     }
    
-  },[]);
+  }
 
   
 //都道府県データを取得
