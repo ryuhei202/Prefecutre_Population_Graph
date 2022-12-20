@@ -3,12 +3,13 @@ import { Prefectures } from "../../types";
 
 type Props = {
   prefectures:Prefectures[] | undefined;
-  onChange: (name:string, value:number,checked:boolean, disabled:boolean) => void;
+  onChange: (name:string, value:number,checked:boolean) => void;
+  disabled:boolean;
 }
 
 export const CheckBox: React.FC<Props> = (props) => {
 
-  const { prefectures, onChange } = props;
+  const { prefectures, onChange, disabled } = props;
 
 
   return (
@@ -23,7 +24,7 @@ export const CheckBox: React.FC<Props> = (props) => {
          <React.Fragment key={pre.prefCode} > 
             <div className='checkbox' >
               <label>
-                <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, pre.prefCode, e.target.checked, e.target.disabled)}  />{pre.prefName}
+                <input id={`${pre.prefCode}`} type="checkbox" value={pre.prefCode} onChange={(e) => onChange(pre.prefName, pre.prefCode, e.target.checked)} disabled={disabled} />{pre.prefName}
               </label>
             </div>
           </React.Fragment>

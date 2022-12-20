@@ -9,12 +9,15 @@ export const PrefecturesGraph = () => {
 
   const [ prefectures, setPrefectures ] = useState<Prefectures[]>();
   const [ prefectureData, setPrefectureData ] = useState<PrefectureData[]>([]);
+  const [ disabled, setDisabled ] = useState<boolean>(false);
 
 
   //チェックボックスが選択された際のイベント
-  const handleCheckboxChange = (name:string, value:number,checked:boolean, disabled:boolean) => {
+  const handleCheckboxChange = (name:string, value:number,checked:boolean) => {
     if(checked) {
        // checkboxが選択された時、配列にdataを追加する
+       setDisabled(true);
+
        fetchPopulation(value)
       .then((res:any) => {
         let addPrefectureData = [...prefectureData];
@@ -22,8 +25,10 @@ export const PrefecturesGraph = () => {
         addPrefectureData.push({
           prefName: name,
           data: res.data.result.data[0].data
-       });
+       })
       setPrefectureData(addPrefectureData);
+    }).finally(() => {
+      setDisabled(false);
     })
     } else {
       // checkboxが外されたとき、配列からdataを削除する
@@ -47,12 +52,14 @@ export const PrefecturesGraph = () => {
     })
   },[]);
 
+  console.log(prefectureData);
+
 
 
   return (
     <>
     <div className="select-area">
-      <CheckBox prefectures={prefectures} onChange={handleCheckboxChange}  />
+      <CheckBox prefectures={prefectures} onChange={handleCheckboxChange} disabled={disabled} />
       <Graph  prefectureData={prefectureData} />
       
     </div>       
