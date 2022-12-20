@@ -1,4 +1,8 @@
-export const Header = (props:any) => {
+type Props = {
+  children:string;
+}
+
+export const Header = (props:Props) => {
   return (
     <>
     <header>

@@ -20,6 +20,7 @@ export const PrefecturesGraph = () => {
 
        fetchPopulation(value)
       .then((res:any) => {
+        console.log(res);
         let addPrefectureData = [...prefectureData];
 
         addPrefectureData.push({
@@ -48,6 +49,7 @@ export const PrefecturesGraph = () => {
   useEffect(() => {
     fetchPrefectures()
     .then((data) => {
+      console.log(data);
       setPrefectures(data);
     })
   },[]);
