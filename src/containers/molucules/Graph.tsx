@@ -2,7 +2,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { PrefectureData } from "../../types";
 
-type Props = {
+ export type Props = {
   prefectureData: PrefectureData[]
 }
 

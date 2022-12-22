@@ -1,7 +1,7 @@
 import React from 'react';
 import { Prefectures } from "../../types";
 
-type Props = {
+export type Props = {
   prefectures:Prefectures[] | undefined;
   onChange: (name:string, value:number,checked:boolean) => void;
   disabled:boolean;
